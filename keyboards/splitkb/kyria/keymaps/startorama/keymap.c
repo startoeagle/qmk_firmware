@@ -70,7 +70,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT(
      KC_TAB       , SE_Q         ,  SE_W   ,  SE_E  ,   SE_R ,   SE_T ,                                        SE_Y,   SE_U ,  SE_I ,   SE_O ,  SE_P          , SE_ARNG,
      CTL_ESC      , LSFT_T(SE_A) ,  SE_S   ,  SE_D  ,   SE_F ,   SE_G ,                                        SE_H,   SE_J ,  SE_K ,   SE_L , RSFT_T(SE_ODIA),CTL_QUOT,
-     OSM(KC_LSFT) , SE_Z         ,  SE_X   ,  SE_C  ,   SE_V ,   SE_B , SE_LBRC,KC_CAPS,     FKEYS  , SE_RBRC, SE_N,   SE_M ,SE_COMM, SE_DOT ,SE_SLSH         , OSM(KC_RSFT),
+     KC_LSFT , SE_Z         ,  SE_X   ,  SE_C  ,   SE_V ,   SE_B , SE_LBRC,KC_CAPS,     FKEYS  , SE_RBRC, SE_N,   SE_M ,SE_COMM, SE_DOT ,SE_SLSH         , KC_RSFT,
                                 ADJUST , KC_LGUI, ALT_ENT, KC_BSPC , NAV   ,     SYM    , KC_SPC , KC_RALT, KC_RGUI, KC_APP
     ),
 
@@ -145,7 +145,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
  * |    ~   |  !   |  @   |  #   |  $   |  %   |                              |   ^  |  &   |  *   |  (   |  )   |   +    |
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * |    |   |   \  |  .   |  ;   |  -   |  [   |  {   |      |  |      |   }  |   ]  |  _   |  <   |  >   |  /   |   ?    |
+ * |    |   |   \  |  .   |  ;   |  -   |  [   |  {   |      |  |      |   }  |   ]  |  _   |  <   |  >   |  bs  |   ?    |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
  *                        |      |      |      |      |      |  |      |      |      |      |      |
  *                        |      |      |      |      |      |  |      |      |      |      |      |
@@ -154,7 +154,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_SYM] = LAYOUT(
      SE_ACUT,  KC_1 ,   KC_2 ,   KC_3 ,   KC_4 ,   KC_5 ,                                       KC_6 ,   KC_7 ,   KC_8 ,   KC_9 ,   KC_0 , SE_EQL ,
      SE_TILD , SE_EXLM,  SE_AT , SE_HASH,  SE_DLR, SE_PERC,                                     SE_CIRC, SE_AMPR, SE_ASTR, SE_LPRN, SE_RPRN, SE_PLUS,
-     SE_PIPE , SE_BSLS, SE_QUOT, SE_DQUO, SE_MINS, SE_LBRC, SE_LCBR, _______, _______, SE_RCBR, SE_RBRC, SE_UNDS, SE_LABK , SE_RABK, SE_SLSH, SE_QUES,
+     SE_PIPE , SE_BSLS, SE_QUOT, SE_DQUO, SE_MINS, SE_LBRC, SE_LCBR, _______, _______, SE_RCBR, SE_RBRC, SE_UNDS, SE_LABK , SE_RABK, SE_BSLS, SE_QUES,
                                  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     ),
 
