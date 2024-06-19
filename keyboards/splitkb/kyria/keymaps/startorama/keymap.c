@@ -70,7 +70,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT(
      KC_TAB       , SE_Q         ,  SE_W   ,  SE_E  ,   SE_R ,   SE_T ,                                        SE_Y,   SE_U ,  SE_I ,   SE_O ,  SE_P          , SE_ARNG,
      CTL_ESC      , LSFT_T(SE_A) ,  SE_S   ,  SE_D  ,   SE_F ,   SE_G ,                                        SE_H,   SE_J ,  SE_K ,   SE_L , RSFT_T(SE_ODIA),CTL_QUOT,
-     KC_LSFT , SE_Z         ,  SE_X   ,  SE_C  ,   SE_V ,   SE_B , SE_LBRC,KC_CAPS,     FKEYS  , SE_RBRC, SE_N,   SE_M ,SE_COMM, SE_DOT ,SE_SLSH         , KC_RSFT,
+     OSM(MOD_LSFT) , SE_Z         ,  SE_X   ,  SE_C  ,   SE_V ,   SE_B , SE_LBRC,KC_CAPS,     FKEYS  , SE_RBRC, SE_N,   SE_M ,SE_COMM, SE_DOT ,SE_SLSH         , OSM(MOD_RSFT),
                                 ADJUST , KC_LGUI, ALT_ENT, KC_BSPC , NAV   ,     SYM    , KC_SPC , KC_RALT, KC_RGUI, KC_APP
     ),
 
