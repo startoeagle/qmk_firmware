@@ -15,8 +15,11 @@
  */
 #include <stdio.h>
 #include "keycodes.h"
+
+// Toggle keymaps for mac and non mac layouts
 #include "keymap_swedish_pro_mac_ansi.h"
 // #include "keymap_swedish.h"
+
 #include "modifiers.h"
 #include "quantum_keycodes.h"
 #include QMK_KEYBOARD_H
@@ -31,21 +34,21 @@ enum layers {
     _ADJUST,
 };
 
-
 // Aliases for readability
-#define QWERTY   DF(_QWERTY)
-#define COLEMAK  DF(_COLEMAK_DH)
-#define DVORAK   DF(_DVORAK)
+#define QWERTY DF(_QWERTY)
+#define COLEMAK DF(_COLEMAK_DH)
+#define DVORAK DF(_DVORAK)
 
-#define SYM      MO(_SYM)
-#define NAV      MO(_NAV)
-#define FKEYS    MO(_FUNCTION)
-#define ADJUST   MO(_ADJUST)
+#define SYM MO(_SYM)
+#define NAV MO(_NAV)
+#define FKEYS MO(_FUNCTION)
+#define ADJUST MO(_ADJUST)
 
-#define CTL_ESC  MT(MOD_LCTL, KC_ESC)
+#define CTL_ESC MT(MOD_LCTL, KC_ESC)
 #define CTL_QUOT MT(MOD_RCTL, KC_QUOTE)
 #define CTL_MINS MT(MOD_RCTL, KC_MINUS)
-#define ALT_ENT  MT(MOD_LALT, KC_ENT)
+#define LALT_ENT MT(MOD_LALT, KC_ENT)
+#define RALT_ENT MT(MOD_RALT, KC_ENT)
 
 // Note: LAlt/Enter (ALT_ENT) is not the same thing as the keyboard shortcut Alt+Enter.
 // The notation `mod/tap` denotes a key that activates the modifier `mod` when held down, and
@@ -57,7 +60,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * Base Layer: QWERTY
  *
  * ,-------------------------------------------.                              ,-------------------------------------------.
- * |  Tab   |   Q  |   W  |   E  |   R  |   T  |                              |   Y  |   U  |   I  |   O  |   P  |  Bksp  |
+ * |  Tab   |   Q  |   W  |   E  |   R  |   T  |                              |   Y  |   U  |   I  |   O  |   P  |   Å    |
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
  * |Ctrl/Esc|   A  |   S  |   D  |   F  |   G  |                              |   H  |   J  |   K  |   L  |   Ö  |   Ä    |
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
@@ -68,10 +71,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                        `----------------------------------'  `----------------------------------'
  */
     [_QWERTY] = LAYOUT(
-     KC_TAB       , SE_Q         ,  SE_W   ,  SE_E  ,   SE_R ,   SE_T ,                                        SE_Y,   SE_U ,  SE_I ,   SE_O ,  SE_P          , SE_ARNG,
-     CTL_ESC      , LSFT_T(SE_A) ,  SE_S   ,  SE_D  ,   SE_F ,   SE_G ,                                        SE_H,   SE_J ,  SE_K ,   SE_L , RSFT_T(SE_ODIA),CTL_QUOT,
-     OSM(MOD_LSFT) , SE_Z         ,  SE_X   ,  SE_C  ,   SE_V ,   SE_B , SE_LBRC,KC_CAPS,     FKEYS  , SE_RBRC, SE_N,   SE_M ,SE_COMM, SE_DOT ,SE_SLSH         , OSM(MOD_RSFT),
-                                ADJUST , KC_LGUI, ALT_ENT, KC_BSPC , NAV   ,     SYM    , KC_SPC , KC_RALT, KC_RGUI, KC_APP
+     KC_TAB        , SE_Q         ,  SE_W          ,  SE_E          ,   SE_R        ,   SE_T ,                                        SE_Y,        SE_U        ,           SE_I,          SE_O ,            SE_P,  SE_ARNG,
+     CTL_ESC       , LSFT_T(SE_A) , LCTL_T(SE_S)   ,  LGUI_T(SE_D)  ,   ALT_T(SE_F) ,   SE_G ,                                        SE_H,        RALT_T(SE_J),  RGUI_T(SE_K) ,  RCTL_T(SE_L) , RSFT_T(SE_ODIA),  CTL_QUOT,
+     OSM(MOD_LSFT) , SE_Z         ,  SE_X          ,  SE_C          ,   SE_V        ,   SE_B , SE_LBRC,KC_CAPS,     FKEYS  , SE_RBRC, SE_N,        SE_M        ,        SE_COMM,        SE_DOT ,         SE_SLSH,  OSM(MOD_RSFT),
+                                            ADJUST , KC_LGUI, LALT_ENT, KC_BSPC, NAV   ,     SYM    , KC_SPC , RALT_ENT, KC_RGUI, KC_APP
     ),
 
 /*
@@ -92,7 +95,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_TAB  ,KC_QUOTE,KC_COMM,  KC_DOT,   KC_P ,   KC_Y ,                                        KC_F,   KC_G ,  KC_C ,   KC_R ,  KC_L , KC_BSPC,
      CTL_ESC , KC_A ,  KC_O   ,  KC_E  ,   KC_U ,   KC_I ,                                        KC_D,   KC_H ,  KC_T ,   KC_N ,  KC_S , CTL_MINS,
      KC_LSFT ,KC_SCLN, KC_Q   ,  KC_J  ,   KC_K ,   KC_X , KC_LBRC,KC_CAPS,     FKEYS  , KC_RBRC, KC_B,   KC_M ,  KC_W ,   KC_V ,  KC_Z , KC_RSFT,
-                                 ADJUST, KC_LGUI, ALT_ENT, KC_SPC , NAV   ,     SYM    , KC_SPC , MOD_LALT, KC_RGUI, KC_APP
+                                 ADJUST, KC_LGUI, LALT_ENT, KC_SPC , NAV   ,     SYM    , KC_SPC , MOD_LALT, KC_RGUI, KC_APP
     ),
 
 /*
@@ -113,7 +116,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_TAB  , KC_Q ,  KC_W   ,  KC_F  ,   KC_P ,   KC_B ,                                        KC_J,   KC_L ,  KC_U ,   KC_Y ,KC_SCLN, KC_BSPC,
      CTL_ESC , KC_A ,  KC_R   ,  KC_S  ,   KC_T ,   KC_G ,                                        KC_M,   KC_N ,  KC_E ,   KC_I ,  KC_O , CTL_QUOT,
      KC_LSFT , KC_Z ,  KC_X   ,  KC_C  ,   KC_D ,   KC_V , KC_LBRC,KC_CAPS,     FKEYS  , KC_RBRC, KC_K,   KC_H ,KC_COMM, KC_DOT ,KC_SLSH, KC_RSFT,
-                                 ADJUST, KC_LGUI, ALT_ENT, KC_SPC , NAV   ,     SYM    , KC_SPC , KC_RALT, KC_RGUI, KC_APP
+                                 ADJUST, KC_LGUI, LALT_ENT, KC_SPC , NAV   ,     SYM    , KC_SPC , KC_RALT, KC_RGUI, KC_APP
     ),
 
 /*
